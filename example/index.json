@@ -1,0 +1,150 @@
+{
+	"text": "Python의 기초",
+	"icon": null,
+	"children": [
+		{
+			"text": "0. 강의안 작성법",
+			"path": "lecture/index.html",
+			"children": [
+				{"text":"구름IDE에서 자습용 프로젝트 만들기"}, 
+				{"text":"구름EDU에서 자습용 프로젝트 실행"}, 
+				{"text":"강의 목차 만들기"}, 
+				{"text":"실제 내용 작성하기"}, 
+				{"text":"코드 에디터 붙이기"}, 
+				{"text":"고정 스타일의 사용"}, 
+				{"text":"동영상 삽입"}, 
+				{"text":"퀴즈 삽입"}
+			]	
+		},
+		{
+			"text": "1. 머리말",
+			"path": "lecture/index.html",
+			"children": [{"text":"Iteration"}, {"text":"iteration2"}]	
+		},
+		{
+			"text": "2. Python 소개",
+			"path": "lecture/lecture1.html",
+			"children": [
+				{
+					"text": "Python?",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "Python의 역사",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "Python의 활용 범위",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "Python 설치하기",
+					"path": "lecture/lecture1.html"
+				}
+			]
+		},
+		{
+			"text": "3. 기본 문법",
+			"path": "lecture/lecture1.html",
+			"children": [
+				{
+					"text": "Python?",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "Python의 역사",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "Python의 활용 범위",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "Python 설치하기",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "Python 설치하기",
+					"path": "lecture/lecture1.html"
+				}
+			]
+		},		
+		{
+			"text": "4. 자료형",
+			"path": "lecture/lecture1.html",
+			"children": [
+				{
+					"text": "숫자형 (Number)",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "문자열 (String)",
+					"path": "lecture/lecture1.html"
+				}
+			]
+		},		
+		{
+			"text": "5. 제어문/반복문",
+			"path": "lecture/lecture1.html",
+			"children": [
+				{
+					"text": "숫자형 (Number)",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "문자열 (String)",
+					"path": "lecture/lecture1.html"
+				}
+			]
+		},		
+		{
+			"text": "6. 함수",
+			"path": "lecture/lecture1.html",
+			"children": [
+				{
+					"text": "함수 기초",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "내장 함수",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "외장 함수",
+					"path": "lecture/lecture1.html"
+				}
+			]
+		},		
+		{
+			"text": "7. 파일 입출력",
+			"path": "lecture/lecture1.html",
+			"children": [
+				{
+					"text": "숫자형 (Number)",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "문자열 (String)",
+					"path": "lecture/lecture1.html"
+				}
+			]
+		},		
+		{
+			"text": "8. 장고(Django)",
+			"path": "lecture/lecture1.html",
+			"children": [
+				{
+					"text": "숫자형 (Number)",
+					"path": "lecture/lecture1.html"
+				},
+				{
+					"text": "문자열 (String)",
+					"path": "lecture/lecture1.html"
+				}
+			]
+		}
+		
+		
+	],
+	"type": "root"
+}

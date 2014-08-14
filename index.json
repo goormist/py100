@@ -1,0 +1,76 @@
+{
+	"text": "Python의 기초",
+	"icon": null,
+	"expand_all": true,
+	"children": [
+		{
+			"text": "0. 강의안 작성법",
+			"path": "lecture/index.html",
+			"children": [
+				{"text":"A. 구름IDE에서 자습용 프로젝트 만들기"}, 
+				{"text":"B. 구름EDU에서 자습용 프로젝트 실행"}, 
+				{"text":"C. 강의 목차 만들기"}, 
+				{"text":"D. 실제 내용 작성하기"}, 
+				{"text":"E. Live Example Editor 삽입"}, 
+				{"text":"F. 고정 스타일의 사용"}, 
+				{"text":"G. 동영상 삽입"}, 
+				{"text":"H. 퀴즈 삽입"}
+			]	
+		},
+		{
+			"text": "1. (C) 반복문 예제",
+			"path": "lecture/iteration.html",
+			"children": [{"text":"A. 반복문"}, {"text":"B. 반복문의 문법"}]	
+		},
+		{
+			"text": "2. (Java) 반복문 예제",
+			"path": "lecture/iteration-java.html",
+			"children": [{"text":"A. 반복문"}, {"text":"B. 반복문의 문법"}]	
+		},
+		{
+			"text": "3. (JS) 빙고 게임 만들기",
+			"path": "lecture/bingo.html",
+			"children": [
+				{
+					"text": "A. bingo.js 스크립트 제작",
+					"path": "lecture/bingo-1.html"
+				},
+				{
+					"text": "B. 게임 규칙 구현",
+					"path": "lecture/bingo-2.html"
+				}
+			]
+		},		
+		{
+			"text": "4. (Python) 자료형",
+			"path": "lecture/lecture4.html",
+			"children": [
+				{
+					"text": "A. 문자열"
+				},
+				{
+					"text": "B.리스트"
+				},
+				{
+					"text": "C.튜플"
+				},
+				{
+					"text": "D. 사전"
+				}
+			]
+		},
+		{
+			"text": "5. 퀴즈 체험하기",
+			"path": "lecture/quiz.html",
+			"children": [
+				{
+					"text": "A. 문제 풀어보기"
+				},
+				{
+					"text": "B. 문제 제출하기"
+				}
+			]
+		}	
+	],
+	"type": "root"
+}

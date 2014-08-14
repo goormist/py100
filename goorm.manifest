@@ -1,0 +1,1 @@
+{"type":"web","detailedtype":"Web Project","author":"nys3909","name":"sds_contents","description":"","date":"2014/8/4 8:57:41","plugins":{"goorm.plugin.web":{"plugin.web.run_index":"index.html","plugin.web.webview_type":"tab"}},"is_user_plugin":false}

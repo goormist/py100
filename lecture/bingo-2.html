@@ -1,0 +1,91 @@
+<article class="edu_contents">
+
+	<hgroup>
+		<div class='edu_chapter'>CHAPTER 4-2</div>
+		<h1>게임 규칙 구현</h1>
+	</hgroup>
+
+	<div id="content">
+		
+		<p>
+			이제 빙고게임의 규칙을 하나씩 적용시켜보자. 아래와 같이 간단한 규칙을 정하였다.
+			<ul>
+				<li>차례대로 한 줄이 선택된 경우 빙고!</li>
+				<li>빙고가 3줄 이상인 경우 승리</li>
+				<li>빙고 칸은 차례대로 한 번씩 선택할 수 있다.</li>
+			</ul>
+		</p>
+		
+		<h2>규칙 1. 차례대로 한 줄이 선택된 경우 빙고!</h2>
+		
+		<p>
+			먼저 차례대로 한 줄이 선택된 경우를 찾고자 BingoCollection 클래스를 다음과 같이 수정한다.
+		</p>
+		
+		<goorm-editor src="bingo-3.js" style="height: 250px;" theme="monokai">
+		</goorm-editor>
+		
+		<p>
+			컬렉션 내에 빙고인 라인수를 저장하기 위해 bingo_lines 변수를 추가하고, checkBingo() 함수를 새로 작성하여 모델이 갱신될 때마다 빙고인지 체크하도록 하였다. 만약 빙고 라인수가 추가된 경우 'bingo' 이벤트를 발생시키고 빙고라인수를 매개변수로 전달하여, View에서 UI를 갱신하도록 한다. 
+		</p>
+		
+		<goorm-editor src="bingo-3.js" style="height: 250px;" theme="monokai">
+		</goorm-editor>
+		
+		<p>
+			View에서 'bingo' 이벤트를 감지하도록 이벤트 타입을 추가하였고, render() 함수에서 빙고 메시지를 추가하도록 수정하였다.
+		</p>
+
+		<p>
+			마지막으로 bingo.html에서 bingo_lines라는 클래스를 가진 요소를 추가해주면 규칙 1의 구현이 끝난다.
+		</p>
+	
+		<goorm-editor src="bingo-2.html" style="height: 300px;" theme="monokai">
+		</goorm-editor>
+
+		<h2>규칙 2. 빙고가 3줄 이상인 경우 승리</h2>
+		
+		<p>
+			규칙 2는 구현이 아주 간단하다. View에 render() 함수부분에서 조건부 처리를 하는 것으로 간단히 구현할 수 있다.
+		</p>
+		
+		<goorm-editor src="bingo-3.js" style="height: 250px;" theme="monokai">
+		</goorm-editor>
+
+		<h2>규칙 3. 빙고 칸은 차례대로 한번씩 선택할 수 있다.</h2>
+		
+		<p>
+			먼저 상대방이 숫자를 선택한 경우 내 빙고판에도 숫자를 체크해야 하므로, Model에서 숫자 선택시 선택된 숫자도 함께 전송하도록 변경한다.
+		</p>
+		
+		<goorm-editor src="bingo-3.js" style="height: 400px;" theme="monokai">
+		</goorm-editor>
+	
+		<p>
+			Collection 클래스에 sync() 함수를 추가하여, 상대방의 선택된 숫자를 찾아 선택표시를 한다.
+		</p>
+		
+		<goorm-editor src="bingo-3.js" style="height: 200px;" theme="monokai">
+		</goorm-editor>
+		
+		<p>
+			이번엔 View에 현재 순서에 대한 정보를 저장하고, 선택할 순서인 플레이어가 누구인지 알 수 있도록 CSS를 변경해주자.
+		</p>
+	
+		<goorm-editor src="bingo-3.js" style="height: 200px;" theme="monokai">
+		</goorm-editor>
+
+		<p>
+			myturn이라는 변수를 추가하여, 턴에대한 정보와 내 턴이 아닌 경우 클릭이벤트를 수행하지 않도록 수정하였다. 그리고 클릭이벤트를 통해 숫자가 선택된 경우 "checked"라는 이벤트를 발생시킨다.
+		</p>
+	
+		<goorm-editor src="bingo-3.js" style="height: 200px;" theme="monokai">
+		</goorm-editor>
+	
+		<p>
+			마지막으로 Ready 함수에서 두 View에 대한 컨트롤 코드를 작성한다. 각 플레이어로부터 'checked'라는 이벤트를 받으면 턴을 상대방으로 변경하고, 선택한 숫자를 sync() 함수를 통해 동기화시킨다.
+		</p>
+		
+	</div>
+
+</article>

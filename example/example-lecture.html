@@ -1,0 +1,143 @@
+<article class="goorm-edu-mode">
+	
+	<style>
+		.goorm-edu-mode h2 {
+			margin-top: 40px;
+			margin-bottom: 10px;
+		}
+	</style>
+
+	<h1 class="goorm-edu-title">구름EDU 강의안 작성법</h1>
+	
+	<div class="well">
+		본 문서는 구름EDU 자습용 강의안을 작성하는 방법에 대한 내용을 설명하는 문서입니다.
+	</div>
+
+	<div class="goorm-edu-content">
+		<h2>구름IDE에서 자습용 프로젝트 만들기</h2>
+
+		<p>
+			구름IDE에서 구름EDU 자습용 컨텐츠를 만들 수 있습니다. 다시 말해, 구름IDE 프로젝트 = 구름EDU 강의라고 볼 수 있습니다. 따라서, 만약 node.js 강의안을 만들고 싶다면 node.js 프로젝트로 생성되어야 하며, Python 강의안을 만들고 싶다면 Python 프로젝트를 생성해야만 합니다.
+		</p>
+		
+		<h2>구름EDU에서 자습용 프로젝트 실행</h2>
+		
+		<p>
+			구름EDU에서 자습용 프로젝트를 실행하는 방법은 다음과 같습니다.
+		</p>
+		
+		<p>
+			goorm.io에 로그인이 되어 있다는 전제하에 새창에서, 
+		</p>
+		
+		<div class="well">
+			http://edu.goorm.io/?project=project_name&edu_mode=true
+		</div>
+		
+		<p>
+			로 실행하시면 됩니다.
+		</p>
+		
+		<h2>강의 목차 만들기</h2>
+
+		<p>
+			강의 목차는 index.json으로 구성하여 만들 수 있습니다. 각 항목에서 children 값을 이용하여 트리뷰를 계층 구조로 구성할 수 있습니다. 이 때, root 항목 이하 첫번째 깊이의 항목들은 단 하나의 html을 가질 수 있으며, 두번째 깊이의 항목들은 자신의 부모가 가진 html 파일 내부의 h2 항목과 순서대로 연결됩니다.
+		</p>
+		
+		<div goorm-editor="index.json" style="height: 200px;">
+		</div>
+		
+
+		<h2>실제 내용 작성하기</h2>
+
+		<p>
+			실제 강의 내용은 html 파일로 작성됩니다.
+		</p>
+		
+		<div goorm-editor="example-lecture.html" style="height: 200px;" theme="monokai">
+		</div>
+		
+		<h2>코드 에디터 붙이기</h2>
+
+		<p>
+			실행가능한 코드 에디터는 다음과 같이 html 파일 내부에 입력하면 구성이 가능합니다.
+		</p>
+		
+		<div goorm-editor="example.py" style="height: 200px;" theme="monokai">
+		</div>
+		
+		<h3>goorm-editor의 옵션</h3>
+		
+		<p>
+			실행가능한 코드 에디터는 다음과 같이 html 파일 내부에 입력하면 구성이 가능합니다.
+		</p>
+		
+		<div goorm-editor="example.py" style="height: 200px;" theme="monokai">
+		</div>
+		
+		<h3>goorm-editor의 옵션</h3>
+		
+		<p>
+			실행가능한 코드 에디터는 다음과 같이 html 파일 내부에 입력하면 구성이 가능합니다.
+		</p>
+		
+		<div style="font: consolas; padding: 5px; border: 1px solid #ccc; background-color: #fafafa;">
+			코드
+		</div>
+		
+		<div goorm-editor="example.py" style="height: 200px;" theme="monokai">
+		</div>
+		
+		<div style="font: consolas; padding: 5px; border: 1px solid #ccc; background-color: #fafafa;">
+			결과
+		</div>
+		
+		<h3>goorm-editor의 다중탭</h3>
+
+		<p>goorm-editor에서는 다중탭을 통해 한 번에 여러 파일을 보여주거나 실행 부분을 보이게 할 수도 있습니다.</p>
+		
+		<div style="font: consolas; padding: 5px; border: 1px solid #ccc; background-color: #fafafa;">
+			코드
+		</div>
+		
+		<div goorm-editor="example.py" style="height: 200px;" theme="monokai">
+		</div>
+
+		<div style="font: consolas; padding: 5px; border: 1px solid #ccc; background-color: #fafafa;">
+			결과
+		</div>
+		
+		<div goorm-tabs>
+			<div goorm-editor="example-2.js" style="height: 200px;" goorm-tab="JS"></div>
+			<div goorm-editor="example.html" style="height: 200px;" goorm-tab="HTML"></div>
+		</div>
+		
+
+		<h2>고정 스타일의 사용</h2>
+		
+		<p>아래의 예제를 실행해보자.</p>
+
+		<p class="goorm-edu-warning">
+			warning 형태의 결과
+		</p>
+
+		<div class="goorm-edu-note">
+			note 형태의 결과
+		</div>
+
+
+		<h2>동영상 삽입</h2>
+
+		<p>
+			동영상을 삽입하는 방법
+		</p>
+
+		<h2>퀴즈 삽입</h2>
+
+		<p>
+			퀴즈를 삽입하는 방법
+		</p>
+		
+	</div>
+
+</article>

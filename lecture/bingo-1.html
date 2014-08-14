@@ -1,0 +1,110 @@
+<article class="edu_contents">
+
+	<hgroup>
+		<div class='edu_chapter'>CHAPTER 4-1</div>
+		<h1>bingo.js 스크립트 제작</h1>
+	</hgroup>
+
+	<div id="content">
+		
+		<h2>기본 코드 작성</h2>
+		
+		<p>
+			자 이제 bingo.html과 같은 폴더에 bingo.js를 작성한다. 가장 먼저 할 일은 빙고판을 랜덤한 1~25까지의 숫자로 채우는 일이다.
+		</p>
+		
+		<goorm-editor src="bingo-1.js" style="height: 250px;" theme="monokai">
+		</goorm-editor>
+		
+		<p>
+			Bingo라는 이름의 클래스를 생성하여 this를 이용하여 init()와 render()라는 함수를 public으로 정의하였다. 여기서 public이라는 의미는 OOP(Object Oriented Programming)의 개념에서 외부에 참조할 수 있는 요소를 가리킨다. 
+		</p>
+		
+		<goorm-editor src="example4-1-1.js" style="height: 200px;" theme="monokai" bt_run="false">
+		</goorm-editor>
+		
+		<p>
+			앞의 코드에서 player1에 빙고 객체를 생성하여 init()을 호출하여 초기화를 진행 시키는 것을 볼 수 있다. 여기서 getRandomSet() 함수는 private으로 정의하여 외부에서 호출할 수 없도록 하고 오직 내부에서만 사용 가능하도록 캡슐화시켜놓은 것을 알 수 있다.
+		</p>
+
+		<p>
+			getRandomSet() 함수는 랜덤한 데이터세트를 생성하는 함수이다. 매개변수로 배열을 입력받아 랜덤한 순서로 섞어 배열을 리턴하게 된다. 배열을 섞는 방법에는 여러 가지 방법이 있으니 필요하다면 로직을 스스로 생각해보도록 하자. 여기서는 자세한 설명은 생략하겠다.
+		</p>
+
+		<goorm-editor src="example4-1-2.js" style="height: 200px;" theme="monokai" bt_run="false">
+		</goorm-editor>
+		
+		<p>
+			앞의 코드에서 본격적으로 빙고 객체를 플레이어마다 생성하고 사용할 요소의 선택자를 매개변수로 넘겨주면 빙고 객체 내에서 해당 선택자를 저장하고 렌더링할 때 자동으로 해당 요소를 사용하게 된다.
+		</p>
+		
+		<h2>구조화시키기</h2>
+
+		<p>
+			자, 이제 Backbone.js의 Model-Collection-View 콘셉트를 이용하여 빙고게임을 구조화시키도록 하자. 구조화의 원칙 중 하나는 각 구조 간의 연관성을 최대한 줄이고, 독립적인 객체로 사용할 수 있도록 설계하는 것이다. 따라서 Model에서는 모델이 가지는 데이터에 대한 처리만을 담당하도록 하며, Collection은 모델집합에 대한 관리와 모델의 변경에 대한 이벤트를 인지하여 View가 이를 수정 할 수 있도록 한다. View에서는 UI에 대한 처리와 사용자와 상호작용 할 수 있는 로직을 컨트롤하도록 설계한다.
+		</p>
+		
+		<h3>Model</h3>
+
+		<p>
+			모델 부분은 빙고게임의 한 칸 한 칸에 대한 데이터를 모델로 정의하도록 하자. 모델의 데이터가 될 수 있는 것을 생각해보면 일단 칸에 배정된 숫자와 해당 칸이 선택되었는지 안 되었는지 여부 정도가 되겠다.
+		</p>
+		
+		<goorm-editor src="bingo-2.js" style="height: 250px;" theme="monokai">
+		</goorm-editor>
+		
+		<p>
+			모델이 가지는 데이터로 attributes에 칸에 대한 숫자정보(number)와 칸의 선택 여부(selected)를 지정하고, 데이터를 저장(this.set)하고 불러오는(this.get) 기능을 구현하였다. 여기서 this.set() 함수를 통해 모델의 데이터가 변하는 경우 change 이벤트를 발생시켜 앞으로 collection에서 이에 대해 인지할 수 있도록 설계 할 것이다.
+		</p>
+		
+		<h3>Collection</h3>
+		
+		<p>
+			콜렉션은 모델객체를 담고 있으며, 모델 데이터 변경 시 View를 갱신하도록 한다. 여기서 빙고 칸이 25칸이므로 모델집합 또한 25개의 모델을 가지게 될 것이다.
+		</p>
+
+		<goorm-editor src="bingo-2.js" style="height: 250px;" theme="monokai">
+		</goorm-editor>
+		
+		<p>
+			기존 Bingo 클래스에서 데이터에 관련된 부분을 Collection으로 이동시켰다. Collection은 모델의 집합이므로 this.models.push(new BingoModel(numbers[i])); 에서 25개의 새로운 모델객체를 생성하고 각각 모델에 대한 이벤트를 감지하여 'update' 이벤트를 발생시킨다.
+		</p>
+		
+		<h3>View</h3>
+		
+		<p>
+			View는 Model과 Collection의 변경을 감지하여 UI를 업데이트하고, 사용자의 이벤트를 처리하는 기능을 한다. 기존의 Bingo 객체의 이름을 BingoView로 변경하였으며, View에서 직접 데이터를 처리하는 것이 아닌 컬렉션과 모델로부터 데이터를 가져와 처리하도록 구현하였다.
+		</p>
+
+		<goorm-editor src="bingo-2.js" style="height: 250px;" theme="monokai" set-line="20">
+		</goorm-editor>
+		
+		<p>
+			콜렉션은 모델객체를 담고 있으며, 모델 데이터 변경 시 View를 갱신하도록 한다. 여기서 빙고 칸이 25칸이므로 모델집합 또한 25개의 모델을 가지게 될 것이다.
+		</p>
+		
+		<goorm-editor src="bingo-2.js" style="height: 250px;" theme="monokai">
+		</goorm-editor>		
+		
+		<p>
+			마지막으로 스크립트 로딩부분에서 Bingo 클래스를 BingoView 클래스로 변경한다.
+		</p>
+		
+		<goorm-editor src="bingo-2.js" style="height: 250px;" theme="monokai">
+		</goorm-editor>		
+		
+		<p>
+			아래는 지금까지 작성된 bingo.js 파일의 내용이다.
+		</p>
+		
+		<goorm-editor src="bingo-2.js" style="height: 500px;" theme="monokai">
+		</goorm-editor>	
+		
+		<p>
+			빙고 칸 선택 시 정상적으로 선택이 되는 것을 볼 수 있다.
+		</p>
+		
+		
+	</div>
+
+</article>
